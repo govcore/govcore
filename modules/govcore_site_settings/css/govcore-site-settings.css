@@ -1,0 +1,38 @@
+.block-siteleadershipimageblock {
+  margin-left: 0.625rem;
+  margin-right: 0.625rem;
+}
+
+@media print, screen and (min-width: 48em) {
+  .block-siteleadershipimageblock {
+    margin-left: .937rem;
+    margin-right: .937rem;
+  }
+}
+
+.block-siteleadershipimageblock {
+  margin: 0;
+}
+
+.block-siteleadershipblock {
+  margin-left: 0.625rem;
+  margin-right: 0.625rem;
+}
+
+@media print, screen and (min-width: 48em) {
+  .block-siteleadershipblock {
+    margin-left: .937rem;
+    margin-right: .937rem;
+  }
+}
+
+.block-siteleadershipblock * {
+  color: #fff;
+  margin-bottom: 0;
+}
+
+.block-siteleadershipblock h3,
+.block-siteleadershipblock h3 a {
+  letter-spacing: 1.17px;
+  text-transform: uppercase;
+}

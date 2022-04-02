@@ -1,0 +1,16 @@
+  <?php
+
+    /**
+    * @file
+    * Install, update and uninstall functions for the govcore_site_settings module.
+    */
+
+    use Drupal\Core\Database\Database;
+
+    /**
+    * Implements hook_install().
+    */
+    function govcore_site_settings_install() {
+    // Decrease module weight to perform oveerrides.
+    module_set_weight('govcore_site_settings', 10);
+     }

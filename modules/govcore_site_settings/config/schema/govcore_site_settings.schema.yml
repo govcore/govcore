@@ -1,0 +1,48 @@
+govcore_site_settings.settings:
+  type: config_object
+  label: 'Site settings.'
+  mapping:
+    site_leader_image:
+      type: file
+      label: 'Image'
+    site_leader_name:
+      type: text
+      label: 'Name'
+    site_leader_title:
+      type: text
+      label: 'Title'
+    site_leader_info:
+      type: text
+      label: 'Info'
+    site_leader_info_format:
+      type: text
+      label: 'Format'
+    copyright_message:
+      type: text
+      label: 'Message'
+block.settings.site_settings_site_leader_block:
+  type: block_settings
+  label: 'Site Leadership block'
+  mapping:
+    use_site_leader_image:
+      type: boolean
+      label: 'Use site image'
+    use_site_leader_name:
+      type: boolean
+      label: 'Use site name'
+    use_site_leader_title:
+      type: boolean
+      label: 'Use site title'
+    use_site_leader_info:
+      type: boolean
+      label: 'Use site info'
+    use_site_leader_info_format:
+      type: boolean
+      label: 'Use site info format'
+block.settings.site_settings_copyright_block:
+  type: block_settings
+  label: 'Copyright block'
+  mapping:
+    use_copyright_message:
+      type: boolean
+      label: 'Use copyright message'

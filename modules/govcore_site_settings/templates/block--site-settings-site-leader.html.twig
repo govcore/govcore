@@ -1,0 +1,11 @@
+{% block content %}
+      {% if site_leader_name %}
+        <h3>{{ site_leader_name }}</h3>
+      {% endif %}
+      {% if site_leader_title %}
+        <p>{{ site_leader_title }}</p>
+      {% endif %}
+      {% if site_leader_info %}
+         {{ site_leader_info }}
+      {% endif %}
+{% endblock %}

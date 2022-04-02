@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies: {  }
+name: site_leader_image
+label: 'Site Leader Image'
+effects:
+  ef3be997-a4a8-46a7-af9f-0f69c4fc880c:
+    uuid: ef3be997-a4a8-46a7-af9f-0f69c4fc880c
+    id: image_scale
+    weight: 1
+    data:
+      width: null
+      height: 146
+      upscale: true
+  6fc91f06-3929-48c1-8e16-3156de22c0da:
+    uuid: 6fc91f06-3929-48c1-8e16-3156de22c0da
+    id: image_crop
+    weight: 2
+    data:
+      width: 146
+      height: 146
+      anchor: center-center

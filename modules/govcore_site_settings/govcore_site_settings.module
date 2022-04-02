@@ -1,0 +1,180 @@
+<?php
+
+/**
+ * @file
+ * Contains govcore_site_settings.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\entity_browser\Form\EntityBrowserForm;
+use Drupal\Core\Routing\RouteSubscriberBase;
+use Symfony\Component\Routing\RouteCollection;
+use Drupal\Component\Utility\UrlHelper;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Url;
+use Drupal\user\Entity\User;
+use Drupal\file\Entity\File;
+
+/**
+ * Implements hook_help().
+ */
+function govcore_site_settings_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the govcore_site_settings module.
+    case 'help.page.govcore_site_settings':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Module containing site information settings and blocks.') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ *
+ * Alters the System module's site information settings form to add additional
+ * govcore_site_settings settings.
+ *
+ * @see govcore_site_settings_form_system_site_information_settings_form_submit()
+ */
+function govcore_site_settings_form_system_site_information_settings_alter(&$form, FormStateInterface $form_state, $form_id) {
+  $config = \Drupal::configFactory()->getEditable('govcore_site_settings.settings');
+  $site_name = \Drupal::config('system.site')->get('name');
+
+  $form['site_settings']['site_leader'] = [
+    '#type' => 'details',
+    '#weight' => -10,
+    '#title' => t('Site Leadership'),
+    '#description' => t('Information about the site\'s leadership.'),
+    '#open' => TRUE,
+  ];
+  $form['site_settings']['site_leader']['site_leader_name'] = [
+    '#type' => 'textarea',
+    '#rows' => 1,
+    '#weight' => 1,
+    '#title' => t("Name"),
+    '#description' => t('The site leader\'s name.'),
+    '#default_value' => $config->get('site_leader_name'),
+  ];
+  $form['site_settings']['site_leader']['site_leader_title'] = [
+    '#type' => 'textarea',
+    '#rows' => 1,
+    '#weight' => 3,
+    '#title' => t("Title"),
+    '#description' => t('The site leader\'s title.'),
+    '#default_value' => $config->get('site_leader_title'),
+  ];
+  $form['site_settings']['site_leader']['site_leader_info'] = [
+    '#type' => 'text_format',
+    '#rows' => 3,
+    '#weight' => 4,
+    '#title' => t("Information"),
+    '#description' => t(''),
+    '#default_value' => $config->get('site_leader_info'),
+    '#format' => $config->get('site_leader_info_format'),
+  ];
+  $default_image = $config->get('site_leader_image');
+  $form['site_settings']['site_leader']['site_leader_image'] = [
+    '#type' => 'managed_file',
+    '#weight' => 5,
+    '#title' => 'Image',
+    '#name' => 'site_leader_image',
+    '#description' => t('Upload an image.'),
+    '#default_value' => array($default_image),
+    '#upload_location' => 'public://'
+  ];
+  $form['site_settings']['copyright'] = [
+    '#type' => 'details',
+    '#title' => t('Copyright'),
+    '#open' => TRUE,
+  ];
+  $form['site_settings']['copyright']['copyright_message'] = [
+    '#type' => 'textarea',
+    '#rows' => 3,
+    '#title' => 'Copyright message',
+    '#default_value' => $config->get('copyright_message'),
+    '#description' => 'Provide a copyright statement for the footer.',
+    '#attributes' => [
+      'placeholder' => '© Copyright '.date("Y") .', '. $site_name .'.',
+    ],
+  ];
+  $form['#validate'][] = 'govcore_site_settings_form_system_site_information_settings_validate';
+  $form['#submit'][] = 'govcore_site_settings_form_system_site_information_settings_form_submit';
+}
+
+/**
+ * Form validation handler for system_site_information_settings().
+ *
+ * @see govcore_site_settings_form_system_site_information_settings_alter()
+ */
+function govcore_site_settings_form_system_site_information_settings_validate($form, FormStateInterface $form_state) {
+
+}
+
+/**
+ * Form submission handler for system_site_information_settings().
+ *
+ * @see govcore_site_settings_form_system_site_information_settings_alter()
+ */
+function govcore_site_settings_form_system_site_information_settings_form_submit($form, FormStateInterface $form_state) {
+  if(isset($form_state->getValue('site_leader_image')[0])) {
+    // Set file status to permanent.
+    $image = $form_state->getValue('site_leader_image')[0];
+    if ($image) {
+      $file = File::load($image);
+      $file->setPermanent();
+      $file->save();
+    }
+  }
+
+  \Drupal::configFactory()->getEditable('govcore_site_settings.settings')
+    ->set('site_leader_image', $form_state->getValue('site_leader_image')[0])
+    ->set('site_leader_name', $form_state->getValue('site_leader_name'))
+    ->set('site_leader_title', $form_state->getValue('site_leader_title'))
+    ->set('site_leader_info', $form_state->getValue('site_leader_info')['value'])
+    ->set('site_leader_info_format', $form_state->getValue('site_leader_info')['format'])
+    ->set('copyright_message', $form_state->getValue('copyright_message'))
+    ->save();
+}
+/**
+ * Implements hook_theme().
+ */
+function govcore_site_settings_theme() {
+  return [
+    'block__site_settings_site_leader_block' => [
+      'template' => 'block--site-settings-site-leader-block',
+      'base hook' => 'block',
+    ],
+    'site_settings_site_leader' => [
+      'variables' => [
+        'site_leader_name' => NULL,
+        'site_leader_title' => NULL,
+        'site_leader_info' => NULL,
+        'site_leader_info_format' => NULL
+      ],
+      'template' => 'block--site-settings-site-leader',
+    ],
+    'block__site_settings_site_leader_image_block' => [
+      'template' => 'block--site-settings-site-leader-image-block',
+      'base hook' => 'block',
+    ],
+    'site_settings_site_leader_image' => [
+      'variables' => [
+        'site_leader_image' => NULL,
+      ],
+      'template' => 'block--site-settings-site-leader-image',
+    ],
+    'block__site_settings_copyright_block' => [
+      'template' => 'block--site-settings-copyright-block',
+      'base hook' => 'block',
+    ],
+    'site_settings_copyright' => [
+      'variables' => [
+        'copyright_message' => NULL,
+      ],
+      'template' => 'block--site-settings-copyright',
+    ],
+  ];
+}

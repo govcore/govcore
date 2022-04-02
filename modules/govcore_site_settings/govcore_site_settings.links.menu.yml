@@ -1,0 +1,6 @@
+system.site_information_settings:
+  title: 'Site Settings'
+  parent: system.admin_config_system
+  description: 'Change site name, email address, slogan, default front page, error pages, copyright, and leadership info.'
+  route_name: system.site_information_settings
+  weight: -20

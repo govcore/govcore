@@ -1,0 +1,10 @@
+{% extends "block.html.twig" %}
+
+{%
+  set blockClasses = [
+  'site-settings-copyright',
+]
+%}
+
+{% set attributes = attributes.addClass(blockClasses) %}
+
