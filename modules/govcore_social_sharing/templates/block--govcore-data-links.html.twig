@@ -1,0 +1,32 @@
+<div class="data-container">
+  <ul class="data-items">
+    {% for item in data_link_items %}
+      {% if item != '0' %}
+        <li class="data-items__item data-items__item--{{ item }}">
+          {% set module_path = _self|split('/templates') %}
+          {% if item == 'arcgis' %}
+            <a id="data-link-arcgis" href="{{ arcgis }}" title="ArcGIS" target="_blank" data-click-category="data" data-click-action="link" data-click-label="{{ item }}" class="" data-gtm="data">
+              <span class="visually-hidden">{{ item }}</span>
+              <img alt="" src="/{{ module_path[0] }}/images/arcgis.svg" />
+            </a>
+          {% elseif item == 'socrata' %}
+            <a id="data-link-socrata" href="{{ socrata }}" title="Socrata" target="_blank" data-click-category="data" data-click-action="link" data-click-label="{{ item }}" class="" data-gtm="data">
+              <span class="visually-hidden">{{ item }}</span>
+              <img alt="" src="/{{ module_path[0] }}/images/socrata.svg" />
+            </a>
+          {% elseif (item == 'github') %}
+            <a id="data-link-github" href="{{ github }}" title="Github" target="_blank" data-click-category="data" data-click-action="link" data-click-label="{{ item }}" class="" data-gtm="data">
+              <span class="visually-hidden">{{ item }}</span>
+              <img alt="" src="/{{ module_path[0] }}/images/github.svg" />
+            </a>
+          {% elseif (item == 'drupal') %}
+            <a id="data-link-drupal" href="{{ drupal }}" title="Drupal.org" target="_blank" data-click-category="data" data-click-action="link" data-click-label="{{ item }}" class="" data-gtm="data">
+              <span class="visually-hidden">{{ item }}</span>
+              <img alt="" src="/{{ module_path[0] }}/images/drupal.svg" />
+            </a>
+          {% endif %}
+        </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+</div>

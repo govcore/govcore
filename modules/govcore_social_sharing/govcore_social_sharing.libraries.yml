@@ -1,0 +1,9 @@
+main:
+  version: VERSION
+  css:
+    theme:
+      css/govcore-social-sharing.css: {}
+social_sharing:
+  version: VERSION
+  js:
+    //assets.pinterest.com/js/pinit.js: {type: external, attributes: { defer: true, async: true } }

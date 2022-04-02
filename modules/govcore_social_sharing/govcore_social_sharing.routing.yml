@@ -1,0 +1,7 @@
+govcore_social_sharing.settings:
+  path: '/admin/config/services/social_sharing'
+  defaults:
+    _form: '\Drupal\govcore_social_sharing\Form\SocialSharingForm'
+    _title: 'Social Sharing and Links'
+  requirements:
+    _permission: 'administer social sharing'

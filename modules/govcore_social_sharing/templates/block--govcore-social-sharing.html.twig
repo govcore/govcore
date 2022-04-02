@@ -1,0 +1,43 @@
+<div class="social-share-container">
+  <h4>Share This Page:</h4>
+  <ul class="social-share-items">
+    {% for item in social_share_items %}
+      {% if item != '0' %}
+        <li class="social-share-items__item social-share-items__item--{{ item }}">
+          {% set module_path = _self|split('/templates') %}
+          {% if item == 'facebook' %}
+            <a id="js-share-facebook" href="http://www.facebook.com/sharer.php" title="Share on Facebook" target="_blank" data-click-category="social" data-click-action="share" data-click-label="{{ item }}" class="" data-gtm="social">
+              <span class="visually-hidden">{{ item }}</span>
+              <img alt="" src="/{{ module_path[0] }}/images/facebook.svg" />
+            </a>
+          {% elseif item == 'tiktok' %}
+            <a id="js-share-tiktok" href="https://vm.tiktok.com/ZMJwUk2pJ/" title="Share on TikTok" target="_blank" data-click-category="social" data-click-action="share" data-click-label="{{ item }}" class="" data-gtm="social">
+              <span class="visually-hidden">{{ item }}</span>
+              <img alt="" src="/{{ module_path[0] }}/images/tiktok.svg" />
+            </a>
+          {% elseif item == 'twitter' %}
+            <a id="js-share-twitter" href="https://www.twitter.com/share" title="Share on Twitter" target="_blank" data-click-category="social" data-click-action="share" data-click-label="{{ item }}" class="" data-gtm="social">
+              <span class="visually-hidden">{{ item }}</span>
+              <img alt="" src="/{{ module_path[0] }}/images/twitter.svg" />
+            </a>
+          {% elseif item == 'pinterest' %}
+              <a id="js-share-pinterest" href="https://www.pinterest.com/pin/create/button/" title="Share on Pinterest" target="_blank" data-click-category="social" data-click-action="share" data-click-label="{{ item }}" data-pin-do="buttonBookmark" class="">
+                <span class="visually-hidden">{{ item }}</span>
+                <img alt="" src="/{{ module_path[0] }}/images/pinterest.svg" />
+              </a>
+          {% elseif item == 'linkedin' %}
+            <a id="js-share-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url={{ url('<current>') }}" title="Share on Linkedin" target="_blank" data-click-category="social" data-click-action="share" data-click-label="{{ item }}" class="" data-gtm="social">
+              <span class="visually-hidden">{{ item }}</span>
+              <img alt="" src="/{{ module_path[0] }}/images/linkedin.svg" />
+            </a>
+          {% elseif item == 'email' %}
+            <a id="js-share-email" href="mailto:" data-click-category="social" data-click-action="share" data-click-label="{{ item }}" class="" data-gtm="social" >
+              <span class="visually-hidden">{{ item }}</span>
+              <img alt="" src="/{{ module_path[0] }}/images/email.svg" />
+            </a>
+          {% endif %}
+        </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+</div>

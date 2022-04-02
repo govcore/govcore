@@ -1,0 +1,53 @@
+<?php
+
+/**
+ * @file
+ * Contains hooks related to Social Sharing.
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function govcore_social_sharing_theme() {
+  return [
+    'block__govcore_social_links_block' => [
+      'template' => 'block--govcore-social-links-block',
+      'base hook' => 'block',
+    ],
+    'govcore_social_links' => [
+      'variables' => [
+        'social_link_items' => NULL,
+        'facebook' => NULL,
+        'linkedin' => NULL,
+        'tiktok' => NULL,
+        'twitter' => NULL,
+        'youtube' => NULL,
+      ],
+      'template' => 'block--govcore-social-links',
+    ],
+    'block__govcore_data_links_block' => [
+      'template' => 'block--govcore-data-links-block',
+      'base hook' => 'block',
+    ],
+    'govcore_data_links' => [
+      'variables' => [
+        'data_link_items' => NULL,
+        'arcgis' => NULL,
+        'socrata' => NULL,
+        'github' => NULL,
+        'drupal' => NULL,
+      ],
+      'template' => 'block--govcore-data-links',
+    ],
+    'block__govcore_social_sharing_block' => [
+      'template' => 'block--govcore-social-sharing-block',
+      'base hook' => 'block',
+    ],
+    'govcore_social_sharing' => [
+      'variables' => [
+        'social_share_items' => NULL,
+      ],
+      'template' => 'block--govcore-social-sharing',
+    ],
+  ];
+}

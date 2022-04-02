@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" preserveAspectRatio="xMidYMax meet"  viewBox="0 0 24 24" version="1.1">
+<title>Email</title>
+<g id="email">
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(100%,100%,100%);fill-opacity:1;" d="M 21.75 3 C 22.992188 3 24 4.007812 24 5.25 C 24 5.957031 23.667969 6.625 23.101562 7.050781 L 12.898438 14.699219 C 12.367188 15.097656 11.632812 15.097656 11.101562 14.699219 L 0.898438 7.050781 C 0.332031 6.625 0 5.957031 0 5.25 C 0 4.007812 1.007812 3 2.25 3 Z M 10.199219 15.898438 C 11.269531 16.703125 12.730469 16.703125 13.800781 15.898438 L 24 8.25 L 24 18 C 24 19.65625 22.65625 21 21 21 L 3 21 C 1.34375 21 0 19.65625 0 18 L 0 8.25 Z M 10.199219 15.898438 "/>
+</g>
+</svg>

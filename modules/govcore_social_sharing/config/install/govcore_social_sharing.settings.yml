@@ -1,0 +1,27 @@
+social_share_items:
+  facebook: 0
+  tiktok: 0
+  twitter: 0
+  linkedin: 0
+  pinterest: 0
+  email: 0
+social_link_items:
+  facebook: 0
+  instagram: 0
+  linkedin: 0
+  twitter: 0
+  youtube: 0
+social_link_facebook: ''
+social_link_instagram: ''
+social_link_linkedin: ''
+social_link_twitter: ''
+social_link_youtube: ''
+data_link_items:
+  arcgis: 0
+  socrata: 0
+  github: 0
+  drupal: 0
+data_link_arcgis: ''
+data_link_socrata: ''
+data_link_github: ''
+data_link_drupal: ''

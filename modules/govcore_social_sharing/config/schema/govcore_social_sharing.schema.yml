@@ -1,0 +1,73 @@
+govcore_social_sharing.settings:
+  type: mapping
+  label: Settings
+  mapping:
+    social_share_items:
+      type: mapping
+      label: Items
+      mapping:
+        facebook:
+          type: string
+        tiktok:
+          type: string
+        twitter:
+          type: string
+        linkedin:
+          type: string
+        pinterest:
+          type: string
+        email:
+          type: string
+    social_link_items:
+      type: mapping
+      label: Items
+      mapping:
+        facebook:
+          type: string
+        instagram:
+          type: string
+        tiktok:
+          type: string
+        twitter:
+          type: string
+        youtube:
+          type: string
+    social_link_facebook:
+      type: string
+      label: Facebook
+    social_link_instagram:
+      type: string
+      label: Instagram
+    social_link_linkedin:
+      type: string
+      label: LinkedIn
+    social_link_twitter:
+      type: string
+      label: Twitter
+    social_link_youtube:
+      type: string
+      label: YouTube
+    data_link_items:
+      type: mapping
+      label: Items
+      mapping:
+        arcgis:
+          type: string
+        socrata:
+          type: string
+        github:
+          type: string
+        drupal:
+          type: string
+    data_link_arcgis:
+      type: string
+      label: ArcGIS
+    data_link_socrata:
+      type: string
+      label: Socrata
+    data_link_github:
+      type: string
+      label: Github
+    data_link_drupal:
+      type: string
+      label: Drupal

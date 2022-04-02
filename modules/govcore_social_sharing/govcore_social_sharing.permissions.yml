@@ -1,0 +1,4 @@
+administer social sharing:
+  title: 'Administer Social Sharing'
+  description: 'Add and configure Social Sharing and Social Links integrations.'
+  restrict access: TRUE

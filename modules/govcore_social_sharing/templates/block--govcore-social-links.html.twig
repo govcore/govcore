@@ -1,0 +1,37 @@
+<div class="social-container">
+  <ul class="social-items">
+    {% for item in social_link_items %}
+      {% if item != '0' %}
+        <li class="social-items__item social-items__item--{{ item }}">
+          {% set module_path = _self|split('/templates') %}
+          {% if item == 'facebook' %}
+            <a id="social-link-facebook" href="{{ facebook }}" title="Facebook" target="_blank" data-click-category="social" data-click-action="link" data-click-label="{{ item }}" class="" data-gtm="social">
+              <span class="visually-hidden">{{ item }}</span>
+              <img alt="" src="/{{ module_path[0] }}/images/facebook.svg" />
+            </a>
+          {% elseif item == 'instagram' %}
+            <a id="social-link-instagram" href="{{ instagram }}" title="Instagram" target="_blank" data-click-category="social" data-click-action="link" data-click-label="{{ item }}" class="" data-gtm="social">
+              <span class="visually-hidden">{{ item }}</span>
+              <img alt="" src="/{{ module_path[0] }}/images/instagram.svg" />
+            </a>
+          {% elseif item == 'linkedin' %}
+              <a id="social-link-linkedin" href="{{ linkedin }}" title="Linkedin" target="_blank" data-click-category="social" data-click-action="link" data-click-label="{{ item }}" class="" data-gtm="social">
+                <span class="visually-hidden">{{ item }}</span>
+                <img alt="" src="/{{ module_path[0] }}/images/linkedin.svg" />
+              </a>
+          {% elseif item == 'twitter' %}
+            <a id="social-link-twitter" href="{{ twitter }}" title="Twitter" target="_blank" data-click-category="social" data-click-action="link" data-click-label="{{ item }}" class="" data-gtm="social">
+              <span class="visually-hidden">{{ item }}</span>
+              <img alt="" src="/{{ module_path[0] }}/images/twitter.svg" />
+            </a>
+          {% elseif item == 'youtube' %}
+            <a id="social-link-youtube" href="{{ twitter }}" title="YouTube" target="_blank" data-click-category="social" data-click-action="link" data-click-label="{{ item }}" class="" data-gtm="social">
+              <span class="visually-hidden">{{ item }}</span>
+              <img alt="" src="/{{ module_path[0] }}/images/youtube.svg" />
+            </a>
+          {% endif %}
+        </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+</div>

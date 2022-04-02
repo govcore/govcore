@@ -1,0 +1,7 @@
+name: 'Social Sharing and Links'
+description: "A module that provides functionality relating to social sharing and social media links."
+type: module
+core: 8.x
+core_version_requirement: ^8 || ^9
+package: 'GovCore'
+configure: govcore_social_sharing.settings

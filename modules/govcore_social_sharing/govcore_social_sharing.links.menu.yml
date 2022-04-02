@@ -1,0 +1,6 @@
+govcore_social_sharing.settings:
+  route_name: govcore_social_sharing.settings
+  parent: system.admin_config_services
+  title: 'Social Sharing and Links'
+  description: 'Configure settings for Social Sharing and Links'
+  weight: 150
