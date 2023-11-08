@@ -18,26 +18,25 @@
         "composer/composer": "^1.10.22 || ^2.0.13",
         "cweagans/composer-patches": "^1.7",
         "drupal/acquia_connector": "^1.24-rc3 || ^2.0-rc1 || ^3 || ^4",
-        "drupal/core": "^9.2.18 || ^10",
-        "drupal/inline_entity_form": "^1.0-rc7",
-        "drupal/page_manager": "^4.0-beta6",
-        "drupal/panelizer": "^5.0-beta3",
-        "drupal/pendo": "^1@alpha",
+        "drupal/core": "^10.0",
+        "drupal/inline_entity_form": "^2",
+        "drupal/page_manager": "^4.0-rc2",
+        "drupal/panelizer": "^5",
         "drupal/profile_switcher": "^1.0-alpha5",
-        "drupal/search_api": "^1.17",
+        "drupal/search_api": "^1.30",
         "govcore/govcore_core": "^6.0",
         "govcore/govcore_media": "^5.0",
-        "govcore/govcore_theme": "^1.2",
-        "govcore/govcore_workflow": "^4.0"
+        "govcore/govcore_theme": "^2",
+        "govcore/govcore_workflow": "^4.0",
+        "weitzman/drupal-test-traits": "^2"
     },
     "require-dev": {
         "composer/installers": "^1.9",
-        "drupal/core-composer-scaffold": "^9",
-        "drupal/core-dev": "^9",
-        "drupal/devel": "^4.1",
+        "drupal/core-composer-scaffold": "^10",
+        "drupal/core-dev": "^10",
+        "drupal/devel": "^5",
         "drush/drush": ">=11",
-        "phpspec/prophecy-phpunit": "^2",
-        "weitzman/drupal-test-traits": "dev-master"
+        "phpspec/prophecy-phpunit": "^2"
     },
     "config": {
         "preferred-install": {
@@ -47,7 +46,9 @@
             "drupal/core-composer-scaffold": true,
             "composer/installers": true,
             "cweagans/composer-patches": true,
-            "oomphinc/composer-installers-extender": true
+            "oomphinc/composer-installers-extender": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "phpstan/extension-installer": true
         }
     },
     "extra": {
