@@ -113,7 +113,7 @@
         "patches-ignore": {
             "govcore/govcore_core": {
                 "drupal/core": {
-                    "2869592 - Disabled update module shouldn't produce a status report warning": "https://www.drupal.org/files/issues/2869592-remove-update-warning-7.patch"
+                    "2869592 - Disabled update module shouldn't produce a status report warning": "https://www.drupal.org/files/issues/2024-06-14/2869592-disabled-update-module-63.patch"
                 }
             }
         }
