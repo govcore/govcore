@@ -18,10 +18,9 @@
         "composer/composer": "^1.10.22 || ^2.0.13",
         "cweagans/composer-patches": "^1.7",
         "drupal/acquia_connector": "^1.24-rc3 || ^2.0-rc1 || ^3 || ^4",
-        "drupal/core": "^10.0",
+        "drupal/core": "^10.4.0",
         "drupal/inline_entity_form": "^2",
         "drupal/page_manager": "^4.0-rc2",
-        "drupal/panelizer": "^5",
         "drupal/profile_switcher": "^1.0-alpha5",
         "drupal/search_api": "^1.30",
         "govcore/govcore_core": "^6.0",
@@ -48,7 +47,9 @@
             "cweagans/composer-patches": true,
             "oomphinc/composer-installers-extender": true,
             "dealerdirect/phpcodesniffer-composer-installer": true,
-            "phpstan/extension-installer": true
+            "phpstan/extension-installer": true,
+            "php-http/discovery": true,
+            "tbachert/spi": true
         }
     },
     "extra": {
